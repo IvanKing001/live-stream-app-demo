@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Stream</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: flex-start; 
+            min-height: 100vh;
+        }
+        h1 { margin-top: 20px; }
+        .status {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #444;
+        }
+        .buttons {
+            margin: 20px;
+            display: flex;
+            gap: 10px; 
+            justify-content: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #video {
+            margin-top: 20px;
+            border: 2px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎥 Live Stream</h1>
+    <div class="status">Статус камери: {{ status }}</div>
+    <div class="status">Запис: {{ "Йде" if recording else "Зупинено" }}</div>
+    <div class="buttons">
+        <form action="/start_camera" method="get"><button type="submit">▶ Старт</button></form>
+        <form action="/stop_camera" method="get"><button type="submit">⏹ Стоп</button></form>
+                </div>
+    <img id="video" src="/video_feed" width="640" height="480">
+</body>
+</html>
